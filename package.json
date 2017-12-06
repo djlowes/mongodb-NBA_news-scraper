@@ -1,0 +1,33 @@
+{
+  "name": "mongodb-nba_news-scraper",
+  "version": "1.0.0",
+  "description": "A Node.js & MongoDB web app that scrapes NBA news data and allows users to comment about it. Edit",
+  "main": "server.js",
+  "scripts": {
+    "test": "NBA"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/djlowes/mongodb-NBA_news-scraper.git"
+  },
+  "keywords": [
+    "mongoDB",
+    "web-scraper",
+    "NBA",
+    "news"
+  ],
+  "author": "David Lowes",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/djlowes/mongodb-NBA_news-scraper/issues"
+  },
+  "homepage": "https://github.com/djlowes/mongodb-NBA_news-scraper#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "cheerio": "^1.0.0-rc.2",
+    "express": "^4.16.2",
+    "express-handlebars": "^3.0.0",
+    "moment": "^2.19.3",
+    "request": "^2.83.0"
+  }
+}
