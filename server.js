@@ -1,3 +1,8 @@
+/*
+// Created: Dec. 05, 2017 9:45 PM
+// Author: David Lowes
+*/
+
 // ----------------------------------------------------------------------------------------------------------------------------
 // Node Dependencies
 // ----------------------------------------------------------------------------------------------------------------------------
@@ -5,6 +10,7 @@ var express = require('express');
 var exphbs = require('express-handlebars');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
+var logger = require("morgan"); // for debugging
 var request = require('request'); // for web-scraping
 var cheerio = require('cheerio'); // for web-scraping
 
@@ -24,9 +30,30 @@ app.use(express.static(process.cwd() + '/public'));
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
 
+// ----------------------------------------------------------------------------------------------------------------------------
+// MongoDB Environment
+// ----------------------------------------------------------------------------------------------------------------------------
+if (process.env.NODE_ENV == 'production') {
+   mongoose.connect(/*insert here*/);
+   } else {
+  mongoose.connect('mongodb://localhost/mongodb-NBA_news-scraper');
+   }
 
-//MongoDB info required
+var db = mongoose.connection;
+db.on('error', function(err) {
+  console.log('Mongoose Error: ', err);
+});
+db.once('open', function() {
+  console.log('Mongoose connection successful.');
+});
 
+// ----------------------------------------------------------------------------------------------------------------------------
+// Import models and reuire routing
+// ----------------------------------------------------------------------------------------------------------------------------
+// var Comment = require('./models/Comment.js');
+// var Article = require('./models/Article.js');
+// var router = require('./controllers/controller.js');
+// app.use('/', router);
 
 // ----------------------------------------------------------------------------------------------------------------------------
 // Sshhhh... Listen
