@@ -50,10 +50,10 @@ db.once('open', function() {
 // ----------------------------------------------------------------------------------------------------------------------------
 // Import models and reuire routing
 // ----------------------------------------------------------------------------------------------------------------------------
-// var Comment = require('./models/Comment.js');
-// var Article = require('./models/Article.js');
-// var router = require('./controllers/controller.js');
-// app.use('/', router);
+var Comment = require('./models/Comment.js');
+var Article = require('./models/Article.js');
+var router = require('./controllers/controller.js');
+app.use('/', router);
 
 // ----------------------------------------------------------------------------------------------------------------------------
 // Sshhhh... Listen
