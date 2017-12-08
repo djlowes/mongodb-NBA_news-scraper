@@ -34,7 +34,7 @@ app.set('view engine', 'handlebars');
 // MongoDB Environment
 // ----------------------------------------------------------------------------------------------------------------------------
 if (process.env.NODE_ENV == 'production') {
-   mongoose.connect(/*insert here*/);
+   mongoose.connect('mongodb://heroku_mq6thnvc:dkq0q00v2ma651ev2h038quu7b@ds133816.mlab.com:33816/heroku_mq6thnvc');
    } else {
   mongoose.connect('mongodb://localhost/mongodb-NBA_news-scraper');
    }

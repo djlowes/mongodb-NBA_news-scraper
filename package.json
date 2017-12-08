@@ -4,7 +4,8 @@
   "description": "A Node.js & MongoDB web app that scrapes NBA news data and allows users to comment about it. Edit",
   "main": "server.js",
   "scripts": {
-    "test": "NBA"
+    "test": "NBA",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
