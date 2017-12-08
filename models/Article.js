@@ -9,19 +9,19 @@ var mongoose = require('mongoose');
 // ----------------------------------------------------------------------------------------------------------------------------
 var Schema = mongoose.Schema;
 var ArticleSchema = new Schema({
-  title: {
+  player: {
     type: String,
     required: true
   },
-  link: {
+  team: {
     type: String,
     required: true
   },
-  summary: {
+  report: {
     type: String,
     required: true
   },
-  updated: {
+  impact: {
     type: String,
     default: moment().format('MMMM Do YYYY, h:mm A')
   },
