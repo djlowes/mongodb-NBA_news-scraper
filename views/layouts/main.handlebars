@@ -1,61 +1,50 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>NBA Fantasy News Journal</title>
-    <link rel="icon" href="assets/images/favicon.jpeg">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="assets/css/style.css">
-  </head>
-  <body>
-    <!-- Fixed Nav Bar -->
-    <div class="navbar-fixed">
-      <nav>
-        <div class="nav-wrapper grey darken-3">
-          <a class="brand-logo">NBA Fantasy News Journal</a>
-          <a href="" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-          <ul class="right hide-on-med-and-down">
-            <li><a href="http://www.nba.com/" target="_new">NBA.com</a></li>
-            <li><a href="https://github.com/djlowes/mongodb-NBA_news-scraper" target="_new">Github</a></li>
-          </ul>
+<head>
+  <title>NBA Fantasy News Journal</title>
+  <link rel="icon" href="assets/images/favicon.jpeg">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- Bootstrap core CSS -->
+  <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Material Design Bootstrap -->
+  <link href="assets/css/mdb.min.css" rel="stylesheet">
+  <!-- Custom -->
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <!-- Page Content -->
+  <main>
+    <div class="container">
+      <!--Page heading-->
+      <div class="row">
+        <div class="col-md-12">
+          <h1 class="h1-responsive"><img id ="bball" src="assets/img/bball2.jpg"> NBA Fantasy News Journal
+            <small class="text-muted">For injury alerts and player updates </small>
+          </h1>
         </div>
-      </nav>
-    </div>
-    <!-- Mobile Nav Bar -->
-    <ul class="side-nav darken-3" id="mobile-demo">
-      <li><a href="http://www.nba.com/" target="_new">NBA.com</a></li>
-      <li><a href="https://github.com/djlowes/mongodb-NBA_news-scraper" target="_new">Github</a></li>
-    </ul>
-    <!-- Page Content -->
-    <main>
-      <!-- Site Info Container -->
-      <div class="container">
-        <ul class="collection with-header">
-          <li class="collection-header grey lighten-2"><h4><center><b>NBA Fantasy News Journal</b></center></h4></li>
-          <li class="collection-item"><center>This application lets you read and comment on NBA player updates that were scrapped from the web.<br> Hit the Search button <b>below</b> to get the latest updates.</center></li>
-        </ul>
       </div>
+      <hr>
       <div>
-        <center><a href="/" class="btn waves-effect waves-light" type="submit" name="action">Search<i class="material-icons right">send</i></a></center>
+        <center><a href="/" class="btn btn-raised btn-lg" id="button" type="submit" name="action">Refresh List</a></center>
       </div>
+      <hr>
       <!-- Render All Articles -->
+      {{{body}}}
+    </div>
+  </main>
+  <!-- Footer -->
+  <footer class="page-footer grey darken-3">
+    <div class="footer-copyright">
       <div class="container">
-        {{{body}}}
-      </div>
-    </main>
-    <!-- Footer -->
-    <footer class="page-footer grey darken-3">
-      <div class="footer-copyright">
-        <div class="container">
         © Author cannot claim copyright. All article data was web scraped from
         <a class="grey-text text-lighten-4" href="http://www.rotoworld.com/">www.rotoworld.com/</a>
-        </div>
       </div>
-    </footer>
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
-    <script type="text/javascript" src="assets/js/app.js"></script>
-  </body>
-
+    </div>
+  </footer>
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
+  <script type="text/javascript" src="assets/js/app.js"></script>
+</body>
 </html>

@@ -1,10 +1,27 @@
-body {
-  display: flex;
-  min-height: 100vh;
-  flex-direction: column;
-  background-image: url('../img/bball.jpeg');
+main {
+margin-top: 3rem;
 }
 
-main {
-  flex: 1 0 auto;
+main .card {
+  margin-bottom: 2rem;
+}
+
+@media only screen and (max-width: 768px) {
+  .read-more {
+    text-align: center;
+  }
+}
+
+footer.page-footer {
+  background-color: #0f6256;
+  margin-top: 2rem;
+}
+
+#bball {
+  height: 50px;
+  width: 50px;
+}
+
+#button {
+  color: black;
 }
