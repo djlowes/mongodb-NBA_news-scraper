@@ -11,11 +11,13 @@ var Schema = mongoose.Schema;
 var ArticleSchema = new Schema({
   player: {
     type: String,
-    required: true
+    required: true,
+    trim: true
   },
   team: {
     type: String,
-    required: true
+    required: true,
+    trim: true
   },
   report: {
     type: String,
@@ -24,7 +26,8 @@ var ArticleSchema = new Schema({
   },
   impact: {
     type: String,
-    default: moment().format('MMMM Do YYYY, h:mm A')
+    default: moment().format('MMMM Do YYYY, h:mm A'),
+    trim: true
   },
   comments: [{
     type: Schema.Types.ObjectId,

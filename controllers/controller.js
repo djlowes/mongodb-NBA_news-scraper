@@ -9,6 +9,7 @@ var request = require('request'); // for web-scraping
 var cheerio = require('cheerio'); // for web-scraping
 var axios = require("axios"); // for web-scraping
 var exphbs = require('express-handlebars');
+var fetch = require('node-fetch'); //async help
 
 // ----------------------------------------------------------------------------------------------------------------------------
 // Import models
@@ -54,7 +55,6 @@ router.get('/scrape', function(req, res) {
     // Now, grab every everything with a class of "inner" with each "article" tag
     $('.pb').each(function(i, element) {
 
-      function getStuff () {
         for (let i = 0; i < 15; i++) {
           result.report = $(this).children("#cp1_ctl00_rptBlurbs_floatingcontainer_" + i)
           .children(".report")
@@ -74,21 +74,14 @@ router.get('/scrape', function(req, res) {
           .last()
           .text()
         }
-        return (result.report, result.impact, result.player, result.team)
-      }
-
-      function newArt () {
+        //async issues need to be resolved here.
         article = new Article({
           player: result.player,
           team: result.team,
           report: result.report,
           impact: result.impact
         });
-        return article
-      }
 
-
-      function aSave () {
         article.save(function(err, resp) {
           if (err) {
             console.log(err);
@@ -97,10 +90,6 @@ router.get('/scrape', function(req, res) {
             console.log("RESPONSE" + resp)
           }
         });
-        return
-      }
-
-      getStuff().then(value => console.log(value));
 
     });
 
