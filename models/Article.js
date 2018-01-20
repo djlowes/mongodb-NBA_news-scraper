@@ -19,7 +19,8 @@ var ArticleSchema = new Schema({
   },
   report: {
     type: String,
-    required: true
+    required: false,
+    trim: true
   },
   impact: {
     type: String,
@@ -30,6 +31,11 @@ var ArticleSchema = new Schema({
     ref: 'Comment'
   }]
 });
+
+// Validator for 'report' (solved by adding 'trim')
+ArticleSchema.path('report').validate(function (value) {
+    // a func returns boolean, but actually not executed in this case
+}, 'Title is not valid')
 
 // ----------------------------------------------------------------------------------------------------------------------------
 // Article Model

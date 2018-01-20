@@ -42,7 +42,6 @@ router.get('/articles', function(req, res) {
     // This Queries MongoDB for all articles and sorts from newest to top (assuming Ids increment)
     // It then populates any user comments associated with the articles.
   });
-
 });
 
 // Web Scrape Route
@@ -55,47 +54,59 @@ router.get('/scrape', function(req, res) {
     // Now, grab every everything with a class of "inner" with each "article" tag
     $('.pb').each(function(i, element) {
 
-      result.player = $(this).children(".headline")
-        .children(".player")
-        .children("a")
-        .first()
-        .text()
-      result.team = $(this).children(".headline")
-        .children(".player")
-        .children("a")
-        .last()
-        .text()
-      for (let i = 0; i < 15; i++) {
-        result.report = $(this).children("#cp1_ctl00_rptBlurbs_floatingcontainer_" + i)
+      function getStuff () {
+        for (let i = 0; i < 15; i++) {
+          result.report = $(this).children("#cp1_ctl00_rptBlurbs_floatingcontainer_" + i)
           .children(".report")
           .children("p")
           .text();
-        result.impact = $(this).children("#cp1_ctl00_rptBlurbs_floatingcontainer_" + i)
+          result.impact = $(this).children("#cp1_ctl00_rptBlurbs_floatingcontainer_" + i)
           .children(".impact")
           .text();
+          result.player = $(this).children(".headline")
+          .children(".player")
+          .children("a")
+          .first()
+          .text()
+          result.team = $(this).children(".headline")
+          .children(".player")
+          .children("a")
+          .last()
+          .text()
+        }
+        return (result.report, result.impact, result.player, result.team)
+      }
 
-        var article = new Article({
+      function newArt () {
+        article = new Article({
           player: result.player,
           team: result.team,
           report: result.report,
           impact: result.impact
         });
+        return article
       }
-      article.save(function(err, resp) {
-        if (err) {
-          console.log(err);
-        } else {
-          console.log("Updated in the DB")
-          console.log("RESPONSE" + resp)
-        }
-      });
+
+
+      function aSave () {
+        article.save(function(err, resp) {
+          if (err) {
+            console.log(err);
+          } else {
+            console.log("Updated in the DB")
+            console.log("RESPONSE" + resp)
+          }
+        });
+        return
+      }
+
+      getStuff().then(value => console.log(value));
 
     });
+
   });
   res.redirect("/articles");
 });
-
-
 
 
 // Add a Comment Route - **API**
@@ -135,7 +146,6 @@ router.post('/add/comment/:id', function(req, res) {
     }
   });
 });
-
 
 
 router.post('/remove/comment/:id', function(req, res) {
